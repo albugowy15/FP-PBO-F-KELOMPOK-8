@@ -119,40 +119,40 @@ public class Canvas extends JComponent {
 		g.setPaint(Color.red);
 	}
 
+	public void magenta() {
+		g.setPaint(Color.magenta);
+	}
+	
+	public void pink() {
+		g.setPaint(Color.PINK);
+	}
+	
+	public void orange() {
+		g.setPaint(Color.ORANGE);
+	}
+	
+	public void yellow() {
+		g.setPaint(Color.YELLOW);
+	}
+	
+	public void green() {
+		g.setPaint(Color.green);
+	}
+	
+	public void blue() {
+		g.setPaint(Color.blue);
+	}
+	
+	public void cyan() {
+		g.setPaint(Color.CYAN);
+	}
+	
 	public void black() {
 		g.setPaint(Color.black);
 	}
 
-	public void magenta() {
-		g.setPaint(Color.magenta);
-	}
-
-	public void green() {
-		g.setPaint(Color.green);
-	}
-
-	public void blue() {
-		g.setPaint(Color.blue);
-	}
-
 	public void gray() {
 		g.setPaint(Color.GRAY);
-	}
-
-	public void orange() {
-		g.setPaint(Color.ORANGE);
-	}
-
-	public void yellow() {
-		g.setPaint(Color.YELLOW);
-	}
-
-	public void pink() {
-		g.setPaint(Color.PINK);
-	}
-
-	public void cyan() {
-		g.setPaint(Color.CYAN);
 	}
 
 	public void lightGray() {
