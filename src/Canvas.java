@@ -255,7 +255,7 @@ public class Canvas extends JComponent {
 		aboutFrame.setSize(500, 500);
 		aboutFrame.setVisible(true);
 		aboutFrame.add(label);
-		aboutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		aboutFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 
