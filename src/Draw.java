@@ -248,22 +248,22 @@ public class Draw {
 		box.add(Box.createVerticalStrut(5));
 		box.add(rectangle, BorderLayout.NORTH);
 
-		panel.add(greenButton);
-		panel.add(blueButton);
-		panel.add(blackButton);
 		panel.add(redButton);
 		panel.add(magentaButton);
-		panel.add(grayButton);
+		panel.add(pinkButton);
 		panel.add(orangeButton);
 		panel.add(yellowButton);
-		panel.add(pinkButton);
+		panel.add(greenButton);
+		panel.add(blueButton);
 		panel.add(cyanButton);
+		panel.add(blackButton);
+		panel.add(grayButton);
 		panel.add(lightGrayButton);
 		panel.add(saveButton);
-		panel.add(saveAsButton);
-		panel.add(loadButton);
 		panel.add(colorPicker);
 		panel.add(clearButton);
+		panel.add(saveAsButton);
+		panel.add(loadButton);
 		panel.add(aboutButton);
 
 		container.add(panel, BorderLayout.NORTH);
