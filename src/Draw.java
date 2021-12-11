@@ -30,14 +30,15 @@ public class Draw {
 	JButton clearButton, blackButton, blueButton, greenButton, redButton,
 			colorPicker, magentaButton, grayButton, orangeButton, yellowButton,
 			pinkButton, cyanButton, lightGrayButton, saveButton, loadButton,
-			saveAsButton, rectangle, pencil, undoButton, redoButton, aboutButton;
+			saveAsButton, rectangle, pencil, undoButton, redoButton, whiteButton, darkGrayButton, aboutButton;
 	private JFileChooser fileChooser;
 	private File file;
-	private Icon save = new ImageIcon("./icon/save.png");
-	private Icon undo = new ImageIcon("./icon/undo.png");
-	private Icon redo = new ImageIcon("./icon/redo.png");
-	private Icon pencilIcon = new ImageIcon("./icon/pencil.png");
-	private Icon rect = new ImageIcon("./icon/rect.png");
+	private Icon save = new ImageIcon(getClass().getResource("save.png"));
+	private Icon undo = new ImageIcon(getClass().getResource("undo.png"));
+	private Icon redo = new ImageIcon(getClass().getResource("redo.png"));
+	private Icon pencilIcon = new ImageIcon(getClass()
+			.getResource("pencil.png"));
+	private Icon rect = new ImageIcon(getClass().getResource("rect.png"));
 	private int saveCounter = 0;
 	private JLabel filenameBar, thicknessStat;
 	private JSlider thicknessSlider;
@@ -55,6 +56,10 @@ public class Draw {
 			if (event.getSource() == clearButton) {
 				canvas.clear();
 			} else if (event.getSource() == blackButton) {
+				canvas.black();
+			} else if (event.getSource() == darkGrayButton) {
+				canvas.black();
+			} else if (event.getSource() == whiteButton) {
 				canvas.black();
 			} else if (event.getSource() == blueButton) {
 				canvas.blue();
@@ -156,10 +161,10 @@ public class Draw {
 		panel1.setLayout(new FlowLayout());
 
 		pencil = new JButton(pencilIcon);
-		pencil.setPreferredSize(new Dimension(40, 40));
+		pencil.setPreferredSize(new Dimension(30, 30));
 		pencil.addActionListener(listener);
 		rectangle = new JButton(rect);
-		rectangle.setPreferredSize(new Dimension(40, 40));
+		rectangle.setPreferredSize(new Dimension(30, 30));
 		rectangle.addActionListener(listener);
 		thicknessSlider = new JSlider(JSlider.HORIZONTAL, 0, 50, 1);
 		thicknessSlider.setMajorTickSpacing(25);
@@ -167,15 +172,23 @@ public class Draw {
 		thicknessSlider.setPreferredSize(new Dimension(40, 40));
 		thicknessSlider.addChangeListener(thick);
 		undoButton = new JButton(undo);
-		undoButton.setPreferredSize(new Dimension(20, 20));
+		undoButton.setPreferredSize(new Dimension(30, 30));
 		undoButton.addActionListener(listener);
 		redoButton = new JButton(redo);
-		redoButton.setPreferredSize(new Dimension(20, 20));
+		redoButton.setPreferredSize(new Dimension(30, 30));
 		redoButton.addActionListener(listener);
 		blackButton = new JButton();
 		blackButton.setBackground(Color.BLACK);
 		blackButton.setPreferredSize(new Dimension(40, 40));
 		blackButton.addActionListener(listener);
+		darkGrayButton = new JButton();
+		darkGrayButton.setBackground(Color.DARK_GRAY);
+		darkGrayButton.setPreferredSize(new Dimension(40, 40));
+		darkGrayButton.addActionListener(listener);
+		whiteButton = new JButton();
+		whiteButton.setBackground(Color.WHITE);
+		whiteButton.setPreferredSize(new Dimension(40, 40));
+		whiteButton.addActionListener(listener);
 		blueButton = new JButton();
 		blueButton.setBackground(Color.BLUE);
 		blueButton.setPreferredSize(new Dimension(40, 40));
@@ -257,7 +270,9 @@ public class Draw {
 		panel.add(cyanButton);
 		panel.add(blackButton);
 		panel.add(grayButton);
+		panel.add(darkGrayButton);
 		panel.add(lightGrayButton);
+		panel.add(whiteButton);
 		panel.add(saveButton);
 		panel.add(colorPicker);
 		panel.add(clearButton);
