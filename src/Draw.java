@@ -34,7 +34,7 @@ public class Draw {
 	private JFileChooser fileChooser;
 	private File file;
 	private Icon save = new ImageIcon("./icon/save.png");
-	private Icon undo = new ImageIcon("/icon/undo.png");
+	private Icon undo = new ImageIcon("./icon/undo.png");
 	private Icon redo = new ImageIcon("./icon/redo.png");
 	private Icon pencilIcon = new ImageIcon("./icon/pencil.png");
 	private Icon rect = new ImageIcon("./icon/rect.png");
