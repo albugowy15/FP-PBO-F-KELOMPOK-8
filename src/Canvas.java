@@ -277,7 +277,6 @@ public class Canvas extends JComponent {
 			int height = Math.abs(startPoint.y - e.getY());
 
 			shape.setBounds(x, y, width, height);
-			repaint();
 		}
 
 		public void mouseReleased(MouseEvent e)
@@ -286,7 +285,7 @@ public class Canvas extends JComponent {
 			{
 				addRectangle(shape, e.getComponent().getForeground());
 			}
-
+			repaint();
 			shape = null;
 		}
 	}
