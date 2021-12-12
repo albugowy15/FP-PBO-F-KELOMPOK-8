@@ -108,13 +108,10 @@ public class Canvas extends JComponent {
 	}
 
 	public void addRectangle(Rectangle rectangle, Color color) {
-
-		Graphics2D g2d = (Graphics2D) img.getGraphics();
-		g2d.setColor(color);
-		g2d.draw(rectangle);
+		g.draw(rectangle);
 		repaint();
 	}
-
+	
 	public void red() {
 		g.setPaint(Color.red);
 	}
