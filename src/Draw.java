@@ -33,12 +33,12 @@ public class Draw {
 			ellipse, darkGrayButton, aboutButton;
 	private JFileChooser fileChooser;
 	private File file;
-	private Icon save = new ImageIcon(getClass().getResource("save.png"));
-	private Icon undo = new ImageIcon(getClass().getResource("undo.png"));
-	private Icon redo = new ImageIcon(getClass().getResource("redo.png"));
-	private Icon pencilIcon = new ImageIcon(getClass().getResource("pencil.png"));
-	private Icon rect = new ImageIcon(getClass().getResource("rect.png"));
-	private Icon ell = new ImageIcon(getClass().getResource("ell.png"));
+	private Icon save = new ImageIcon("./icon/save.png");
+	private Icon undo = new ImageIcon("./icon/undo.png");
+	private Icon redo = new ImageIcon("./icon/redo.png");
+	private Icon pencilIcon = new ImageIcon("./icon/pencil.png");
+	private Icon rect = new ImageIcon("./icon/rect.png");
+	private Icon ell = new ImageIcon("./icon/ell.png");
 	private int saveCounter = 0;
 	private JLabel filenameBar, thicknessStat;
 	private JSlider thicknessSlider;
