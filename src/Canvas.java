@@ -194,7 +194,7 @@ public class Canvas extends JComponent {
 		removeMouseListener(listener);
 		removeMouseMotionListener(motion);
 		defaultListener();
-		
+		repaint();
 	}
 
 	public void rect() {
@@ -203,6 +203,7 @@ public class Canvas extends JComponent {
 		MyMouseListener ml = new MyMouseListener();
 		addMouseListener(ml);
 		addMouseMotionListener(ml);
+		repaint();
 	}
 
 	private void setImage(Image img) {
