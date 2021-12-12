@@ -59,7 +59,7 @@ public class Draw {
 			} else if (event.getSource() == darkGrayButton) {
 				canvas.darkGray();
 			} else if (event.getSource() == whiteButton) {
-				canvas.black();
+				canvas.white();
 			} else if (event.getSource() == blueButton) {
 				canvas.blue();
 			} else if (event.getSource() == greenButton) {
