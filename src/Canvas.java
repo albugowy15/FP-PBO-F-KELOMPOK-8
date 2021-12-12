@@ -246,7 +246,9 @@ public class Canvas extends JComponent {
 
 	public void about() {
 		JLabel label = new JLabel();
-		String myString = "<HTML>Created By:<br>" +
+		String myString = "<HTML>Proyek ini adalah aplikasi cat berbasis Swing yang simple dan menarik, aplikasi ini dapat berfungsi sebagai dasar untuk belajar menggambar grafik dengan kanvas dengan banyak variasi warna<br>" +
+							"<br>"+
+							"Created By:<br>"+
 							"1. Mohamad Kholid Bughowi (5025201253)<br>" +
 							"2. Sidrotul Munawaroh (5025201047)<br>" +
 							"3. Elthan Ramanda B (5025201092)<br>" +
