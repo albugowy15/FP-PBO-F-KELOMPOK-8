@@ -208,12 +208,13 @@ public class Canvas extends JComponent {
 	public void rect() {
 		removeMouseListener(listener);
 		removeMouseMotionListener(motion);
-		MyMouseListener ml = new MyMouseListener();
-		addMouseListener(ml);
-		addMouseMotionListener(ml);
+		listener = new MyMouseListener();
+		motion = (MouseMotionListener) listener;
+		addMouseListener(listener);
+		addMouseMotionListener(motion);
 		repaint();
 	}
-
+	
 	private void setImage(Image img) {
 		g = (Graphics2D) img.getGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
