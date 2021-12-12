@@ -39,7 +39,7 @@ public class Canvas extends JComponent {
 	private Point startPoint;
 	private MouseMotionListener motion;
 	private MouseListener listener;
-
+	
 	public void save(File file) {
 		try {
 			ImageIO.write((RenderedImage) img, "PNG", file);
@@ -107,11 +107,16 @@ public class Canvas extends JComponent {
 		addMouseMotionListener(motion);
 	}
 
-	public void addRectangle(Rectangle rectangle, Color color) {
-		g.draw(rectangle);
+	public void addRectangle(int x, int y, int width, int height) {
+		g.drawRect (x, y, width, height);
 		repaint();
 	}
 	
+	public void addEllipse(int x, int y, int width, int height) {
+		g.drawOval(x, y, width, height);
+		repaint();
+	}
+
 	public void red() {
 		g.setPaint(Color.red);
 	}
@@ -205,13 +210,23 @@ public class Canvas extends JComponent {
 	public void rect() {
 		removeMouseListener(listener);
 		removeMouseMotionListener(motion);
-		listener = new MyMouseListener();
+		listener = new MyMouseListener("Rectangle");
 		motion = (MouseMotionListener) listener;
 		addMouseListener(listener);
 		addMouseMotionListener(motion);
 		repaint();
 	}
 	
+	public void ell() {
+		removeMouseListener(listener);
+		removeMouseMotionListener(motion);
+		listener = new MyMouseListener("Ellipse");
+		motion = (MouseMotionListener) listener;
+		addMouseListener(listener);
+		addMouseMotionListener(motion);
+		repaint();
+	}
+
 	private void setImage(Image img) {
 		g = (Graphics2D) img.getGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -244,9 +259,7 @@ public class Canvas extends JComponent {
 
 	public void about() {
 		JLabel label = new JLabel();
-		String myString = "<HTML>Proyek ini adalah aplikasi cat berbasis Swing yang simple dan menarik, aplikasi ini dapat berfungsi sebagai dasar untuk belajar menggambar grafik dengan kanvas dengan banyak variasi warna<br>" +
-							"<br>"+
-							"Created By:<br>"+
+		String myString = "<HTML>Proyek ini adalah aplikasi cat berbasis Swing yang simple dan menarik, aplikasi ini dapat berfungsi sebagai dasar untuk belajar menggambar grafik dengan kanvas dengan banyak variasi warna:<br>" +
 							"1. Mohamad Kholid Bughowi (5025201253)<br>" +
 							"2. Sidrotul Munawaroh (5025201047)<br>" +
 							"3. Elthan Ramanda B (5025201092)<br>" +
@@ -271,32 +284,37 @@ public class Canvas extends JComponent {
 	class MyMouseListener extends MouseInputAdapter
 	{
 		private Point startPoint;
+		String shapeType;
+		int x, y, width, height;
+		
+		public MyMouseListener(String shapeType) {
+			this.shapeType = shapeType;
+		}
 
 		public void mousePressed(MouseEvent e)
 		{
+			saveToStack(img);
 			startPoint = e.getPoint();
-			shape = new Rectangle();
 		}
 
 		public void mouseDragged(MouseEvent e)
 		{
-			int x = Math.min(startPoint.x, e.getX());
-			int y = Math.min(startPoint.y, e.getY());
-			int width = Math.abs(startPoint.x - e.getX());
-			int height = Math.abs(startPoint.y - e.getY());
-
-			shape.setBounds(x, y, width, height);
+			x = Math.min(startPoint.x, e.getX());
+			y = Math.min(startPoint.y, e.getY());
+			width = Math.abs(startPoint.x - e.getX());
+			height = Math.abs(startPoint.y - e.getY());
 		}
 
 		public void mouseReleased(MouseEvent e)
 		{
-			if (shape.width != 0 || shape.height != 0)
+			if (width != 0 || height != 0)
 			{
-				addRectangle(shape, e.getComponent().getForeground());
+				if(shapeType == "Rectangle")
+					addRectangle(x, y, width, height);
+				
+				else if(shapeType == "Ellipse")
+					addEllipse(x, y, width, height);
 			}
-			shape = null;
 		}
 	}
 }
-
-	
