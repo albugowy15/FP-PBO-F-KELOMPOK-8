@@ -158,7 +158,11 @@ public class Canvas extends JComponent {
 	public void lightGray() {
 		g.setPaint(Color.lightGray);
 	}
-
+	
+	public void darkGray() {
+		g.setPaint(Color.darkGray);
+	}
+	
 	public void picker(Color color) {
 		g.setPaint(color);
 	}
