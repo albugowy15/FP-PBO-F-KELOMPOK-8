@@ -29,15 +29,16 @@ public class Draw {
 	JButton clearButton, blackButton, blueButton, greenButton, redButton,
 			colorPicker, magentaButton, grayButton, orangeButton, yellowButton,
 			pinkButton, cyanButton, lightGrayButton, saveButton, loadButton,
-			saveAsButton, rectangle, pencil, undoButton, redoButton, whiteButton, darkGrayButton, aboutButton;
+			saveAsButton, rectangle, pencil, undoButton, redoButton, whiteButton,
+			ellipse, darkGrayButton, aboutButton;
 	private JFileChooser fileChooser;
 	private File file;
 	private Icon save = new ImageIcon(getClass().getResource("save.png"));
 	private Icon undo = new ImageIcon(getClass().getResource("undo.png"));
 	private Icon redo = new ImageIcon(getClass().getResource("redo.png"));
-	private Icon pencilIcon = new ImageIcon(getClass()
-			.getResource("pencil.png"));
+	private Icon pencilIcon = new ImageIcon(getClass().getResource("pencil.png"));
 	private Icon rect = new ImageIcon(getClass().getResource("rect.png"));
+	private Icon ell = new ImageIcon(getClass().getResource("ell.png"));
 	private int saveCounter = 0;
 	private JLabel filenameBar, thicknessStat;
 	private JSlider thicknessSlider;
@@ -124,6 +125,8 @@ public class Draw {
 				canvas.picker(color);
 			} else if (event.getSource() == aboutButton) {
 				canvas.about();
+			} else if (event.getSource() == ellipse) {
+				canvas.ell();
 			}
 		}
 	};
@@ -165,6 +168,9 @@ public class Draw {
 		rectangle = new JButton(rect);
 		rectangle.setPreferredSize(new Dimension(30, 30));
 		rectangle.addActionListener(listener);
+		ellipse = new JButton(ell);
+		ellipse.setPreferredSize(new Dimension(30, 30));
+		ellipse.addActionListener(listener);
 		thicknessSlider = new JSlider(JSlider.HORIZONTAL, 0, 50, 1);
 		thicknessSlider.setMajorTickSpacing(25);
 		thicknessSlider.setPaintTicks(true);
@@ -258,6 +264,8 @@ public class Draw {
 		box.add(pencil, BorderLayout.NORTH);
 		box.add(Box.createVerticalStrut(5));
 		box.add(rectangle, BorderLayout.NORTH);
+		box.add(Box.createVerticalStrut(5));
+		box.add(ellipse, BorderLayout.NORTH);
 
 		panel.add(redButton);
 		panel.add(magentaButton);
