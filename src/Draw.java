@@ -6,7 +6,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
 import javax.swing.Box;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -58,7 +57,7 @@ public class Draw {
 			} else if (event.getSource() == blackButton) {
 				canvas.black();
 			} else if (event.getSource() == darkGrayButton) {
-				canvas.black();
+				canvas.darkGray();
 			} else if (event.getSource() == whiteButton) {
 				canvas.black();
 			} else if (event.getSource() == blueButton) {
