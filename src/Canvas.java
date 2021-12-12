@@ -118,6 +118,10 @@ public class Canvas extends JComponent {
 	public void red() {
 		g.setPaint(Color.red);
 	}
+	
+	public void white() {
+		g.setPaint(Color.white);
+	}
 
 	public void magenta() {
 		g.setPaint(Color.magenta);
