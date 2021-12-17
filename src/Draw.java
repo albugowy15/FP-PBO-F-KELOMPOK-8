@@ -162,7 +162,7 @@ public class Draw {
 		ellipse = new JButton(ell);
 		ellipse.setPreferredSize(new Dimension(30, 30));
 		ellipse.addActionListener(listener);
-		thicknessSlider = new JSlider(JSlider.HORIZONTAL, 0, 50, 1);
+		thicknessSlider = new JSlider(JSlider.HORIZONTAL, 1, 50, 1);
 		thicknessSlider.setMajorTickSpacing(25);
 		thicknessSlider.setPaintTicks(true);
 		thicknessSlider.setPreferredSize(new Dimension(40, 40));
