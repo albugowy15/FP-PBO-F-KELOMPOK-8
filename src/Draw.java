@@ -28,12 +28,10 @@ public class Draw {
 	Color color = Color.WHITE;
 	JButton clearButton, blackButton, blueButton, greenButton, redButton,
 			colorPicker, magentaButton, grayButton, orangeButton, yellowButton,
-			pinkButton, cyanButton, lightGrayButton, saveButton, loadButton,
-			saveAsButton, rectangle, pencil, undoButton, redoButton, whiteButton,
+			pinkButton, cyanButton, lightGrayButton, saveButton, loadButton, rectangle, pencil, undoButton, redoButton, whiteButton,
 			ellipse, darkGrayButton, aboutButton;
 	private JFileChooser fileChooser;
 	private File file;
-	private Icon save = new ImageIcon("./icon/save.png");
 	private Icon undo = new ImageIcon("./icon/undo.png");
 	private Icon redo = new ImageIcon("./icon/redo.png");
 	private Icon pencilIcon = new ImageIcon("./icon/pencil.png");
@@ -102,20 +100,13 @@ public class Draw {
 					filenameBar.setText(file.toString());
 					canvas.save(file);
 				}
-			} else if (event.getSource() == saveAsButton) {
-				saveCounter = 1;
-				fileChooser = new JFileChooser();
-				if (fileChooser.showSaveDialog(saveAsButton) == JFileChooser.APPROVE_OPTION) {
-					file = fileChooser.getSelectedFile();
-					filenameBar.setText(file.toString());
-					canvas.save(file);
-				}
 			} else if (event.getSource() == loadButton) {
 				fileChooser = new JFileChooser();
 				if (fileChooser.showOpenDialog(loadButton) == JFileChooser.APPROVE_OPTION) {
 					file = fileChooser.getSelectedFile();
 					filenameBar.setText(file.toString());
-					canvas.load(file);
+					String path = file.getAbsolutePath();
+					canvas.load(file, path);
 				}
 			} else if (event.getSource() == colorPicker) {
 				color = JColorChooser.showDialog(null, "Pick your color!",
@@ -234,10 +225,8 @@ public class Draw {
 		lightGrayButton.setBackground(Color.LIGHT_GRAY);
 		lightGrayButton.setPreferredSize(new Dimension(40, 40));
 		lightGrayButton.addActionListener(listener);
-		saveButton = new JButton(save);
+		saveButton = new JButton("Save");
 		saveButton.addActionListener(listener);
-		saveAsButton = new JButton("Save As");
-		saveAsButton.addActionListener(listener);
 		loadButton = new JButton("Load");
 		loadButton.addActionListener(listener);
 		colorPicker = new JButton("Color Picker");
@@ -283,7 +272,6 @@ public class Draw {
 		panel.add(saveButton);
 		panel.add(colorPicker);
 		panel.add(clearButton);
-		panel.add(saveAsButton);
 		panel.add(loadButton);
 		panel.add(aboutButton);
 

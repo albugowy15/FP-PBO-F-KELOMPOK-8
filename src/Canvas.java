@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -47,7 +48,7 @@ public class Canvas extends JComponent {
 		}
 	}
 
-	public void load(File file) {
+	public void load(File file, String path) {
 		try {
 			img = ImageIO.read(file);
 			g = (Graphics2D) img.getGraphics();
