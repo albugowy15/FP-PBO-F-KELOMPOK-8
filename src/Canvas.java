@@ -20,7 +20,6 @@ import java.awt.FlowLayout;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -40,6 +39,7 @@ public class Canvas extends JComponent {
 	private Point startPoint;
 	private MouseMotionListener motion;
 	private MouseListener listener;
+	private int thickness = 1;
 	
 	public void save(File file) {
 		try {
@@ -97,6 +97,8 @@ public class Canvas extends JComponent {
 				Y1 = e.getY();
 
 				if (g != null) {
+					g.setStroke(new BasicStroke(thickness, BasicStroke.CAP_ROUND,
+			                BasicStroke.JOIN_ROUND));
 					g.drawLine(X2, Y2, X1, Y1);
 					repaint();
 					X2 = X1;
@@ -109,14 +111,17 @@ public class Canvas extends JComponent {
 	}
 
 	public void addRectangle(int x, int y, int width, int height) {
-		g.drawRect (x, y, width, height);
+		g.setStroke(new BasicStroke(thickness));
+		g.drawRect(x, y, width, height);
 		repaint();
 	}
-	
-	public void addEllipse(int x, int y, int width, int height) {
+
+public void addEllipse(int x, int y, int width, int height) {
+		g.setStroke(new BasicStroke(thickness));
 		g.drawOval(x, y, width, height);
 		repaint();
 	}
+
 
 	public void red() {
 		g.setPaint(Color.red);
@@ -255,7 +260,7 @@ public class Canvas extends JComponent {
 	}
 
 	public void setThickness(int thick) {
-		g.setStroke(new BasicStroke(thick));
+		thickness = thick;
 	}
 
 	public void about() {
