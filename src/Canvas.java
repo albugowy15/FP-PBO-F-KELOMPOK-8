@@ -21,7 +21,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -36,7 +35,6 @@ public class Canvas extends JComponent {
 	private final SizedStack<Image> undoStack = new SizedStack<>(12);
 	private final SizedStack<Image> redoStack = new SizedStack<>(12);
 	private Rectangle shape;
-	private Point startPoint;
 	private MouseMotionListener motion;
 	private MouseListener listener;
 	private int thickness = 1;
@@ -116,7 +114,7 @@ public class Canvas extends JComponent {
 		repaint();
 	}
 
-public void addEllipse(int x, int y, int width, int height) {
+	public void addEllipse(int x, int y, int width, int height) {
 		g.setStroke(new BasicStroke(thickness));
 		g.drawOval(x, y, width, height);
 		repaint();
@@ -272,19 +270,16 @@ public void addEllipse(int x, int y, int width, int height) {
 							"4. Raden Pandu Anggono R (5025201024)<br>" +
 							"</HTML>";
 		label.setPreferredSize(new Dimension(400,400));
-		// label.setBounds(0,0,400,400);
 		label.setFont(new Font(null, Font.PLAIN, 16));
 		label.setHorizontalAlignment(JLabel.CENTER);
 		label.setVerticalAlignment(JLabel.CENTER);
 		label.setText(myString);
-
 		JFrame aboutFrame = new JFrame("ABOUT PAGE");
 		aboutFrame.setLayout(new FlowLayout());
 		aboutFrame.setSize(500, 500);
 		aboutFrame.setVisible(true);
 		aboutFrame.add(label);
 		aboutFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
 	}
 
 	class MyMouseListener extends MouseInputAdapter

@@ -31,7 +31,6 @@ public class InputWH {
 				} catch (ClassNotFoundException | InstantiationException
 						| IllegalAccessException
 						| UnsupportedLookAndFeelException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 	            break;
@@ -70,10 +69,6 @@ public class InputWH {
 		}
 	}
 
-	/**
-	 * @param args
-	 *            none
-	 */
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
